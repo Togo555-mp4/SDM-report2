@@ -3,24 +3,16 @@
 import re
                 
 def calc(A,B):
-        ai=str(A)
-        bi=str(B)
-        p = re.compile('\d+(\.\d+)?')
-        if p.match(ai) or p.match(bi):
-                a=float(ai)
-                b=float(bi)
-                if 0<a and a<b and b<1000:
-                        valid=True
-                else:
-                        valid=False
-        else:
-                valid=False
-                
-        if valid:
-                ans=a*b
-                return ans
-        else:
-                return -1
+    # 整数型であるか確認（整数でない場合は -1 を返す）
+    if not isinstance(A, int) or not isinstance(B, int):
+        return -1
+
+    # 1 から 999 の範囲内か確認（範囲外なら -1 を返す）
+    if not (1 <= A <= 999 and 1 <= B <= 999):
+        return -1
+
+    # 掛け算を実行して結果を返す
+    return A * B
         
                 
 def main ():
